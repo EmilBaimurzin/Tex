@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/saved_fragment_navigation"
+    app:startDestination="@id/savedPostsFragment">
+
+    <fragment
+        android:id="@+id/savedPostsFragment"
+        android:name="com.example.tex.FragmentSaved.posts.SavedPostsFragment"
+        android:label="SavedPostsFragment" >
+        <action
+            android:id="@+id/action_savedPostsFragment_to_savedCommentsFragment"
+            app:destination="@id/savedCommentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedCommentsFragment"
+        android:name="com.example.tex.FragmentSaved.comments.SavedCommentsFragment"
+        android:label="SavedCommentsFragment" >
+        <action
+            android:id="@+id/action_savedCommentsFragment_to_savedPostsFragment"
+            app:destination="@id/savedPostsFragment" />
+    </fragment>
+</navigation>

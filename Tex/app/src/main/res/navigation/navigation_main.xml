@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.tex.main_fragment.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_authorizationFragment"
+            app:destination="@id/authorizationFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentWeb"
+            app:destination="@id/fragmentWeb" />
+        <action
+            android:id="@+id/action_mainFragment_to_navigationFragment"
+            app:destination="@id/navigationFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorizationFragment"
+        android:name="com.example.tex.auth.AuthorizationFragment"
+        android:label="AuthorizationFragment" >
+        <action
+            android:id="@+id/action_authorizationFragment_to_fragmentWeb"
+            app:destination="@id/fragmentWeb" />
+        <action
+            android:id="@+id/action_authorizationFragment_to_navigationFragment"
+            app:destination="@id/navigationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentWeb"
+        android:name="com.example.tex.auth.WebFragment.FragmentWeb"
+        android:label="FragmentWeb" />
+    <fragment
+        android:id="@+id/navigationFragment"
+        android:name="com.example.tex.NavigationFragment.NavigationFragment"
+        android:label="NavigationFragment" >
+        <action
+            android:id="@+id/action_navigationFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.tex.onBoarding.OnBoardingFragment"
+        android:label="OnBoardingFragment" >
+        <action
+            android:id="@+id/action_onBoardingFragment_to_authorizationFragment"
+            app:destination="@id/authorizationFragment"
+            app:enterAnim="@anim/exit_animation"
+            app:exitAnim="@anim/slide_out_from_left"
+            app:popEnterAnim="@anim/enter_animation"
+            app:popExitAnim="@anim/slide_out_from_right"/>
+    </fragment>
+</navigation>

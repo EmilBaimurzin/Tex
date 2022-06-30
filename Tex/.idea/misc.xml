@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/custom_controller.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/full_screen_fragment.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/image_detailed_post_fragment.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/image_screen_activity.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/profile_fragment.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/simple_detailed_post_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/video_detailed_post_fragment.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/video_item.xml" value="0.1381340579710145" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/view_pager_fs_item.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/emilb/diplom_android_lvl1/Tex/app/src/main/res/layout/viewpager_item.xml" value="0.1381340579710145" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
