@@ -5,5 +5,7 @@ enum class ClickListenerType {
     UNFOLLOW,
     NAVIGATE,
     SHARE,
-    PROFILE
+    PROFILE,
+    SAVE,
+    UNSAVE
 }

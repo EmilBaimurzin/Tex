@@ -13,7 +13,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="12dp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/placeholder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,4 +135,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/commentsTextView"
         app:layout_constraintStart_toEndOf="@+id/shareImageView"
         app:layout_constraintTop_toTopOf="@+id/commentsTextView" />
+
+    <ImageButton
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/colorPrimaryVariant"
+        android:src="@drawable/ic_save_comment"
+        app:layout_constraintBottom_toBottomOf="@+id/commentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/commentButton"
+        app:tint="@color/gray_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>

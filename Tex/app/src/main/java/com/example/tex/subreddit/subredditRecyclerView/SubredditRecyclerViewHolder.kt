@@ -1,7 +1,9 @@
 package com.example.tex.subreddit.subredditRecyclerView
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.Icon
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +37,25 @@ sealed class SubredditRecyclerViewHolder(binding: ViewBinding) : RecyclerView.Vi
                 binding.subscribeButton.setImageIcon(Icon.createWithResource(context,
                     R.drawable.ic_add))
             }
+
+            if (item.isLocal) {
+                binding.timeTextView.visibility = View.INVISIBLE
+                binding.saveButton.visibility = View.GONE
+                binding.subscribeButton.visibility = View.GONE
+                binding.commentsTextView.visibility = View.INVISIBLE
+            } else {
+                binding.timeTextView.visibility = View.VISIBLE
+                binding.saveButton.visibility = View.VISIBLE
+                binding.subscribeButton.visibility = View.VISIBLE
+                binding.commentsTextView.visibility = View.VISIBLE
+            }
+
+            if (item.isSaved) {
+                binding.saveButton.setColorFilter(Color.rgb(25, 118, 210))
+            } else {
+                binding.saveButton.setColorFilter(Color.rgb(189, 189, 189))
+            }
+
             binding.apply {
                 root.setOnClickListener {
                     itemClickListener?.invoke(item,
@@ -62,6 +83,27 @@ sealed class SubredditRecyclerViewHolder(binding: ViewBinding) : RecyclerView.Vi
                         bindingAdapterPosition,
                         ClickListenerType.PROFILE,
                         item.nickName)
+                }
+
+                subscribeButton.setOnClickListener {
+                    itemClickListener?.invoke(item,
+                        bindingAdapterPosition,
+                        isFollowed(item),
+                        item.nickName)
+                }
+
+                saveButton.setOnClickListener {
+                    if (!item.isSaved) {
+                        itemClickListener?.invoke(item,
+                            bindingAdapterPosition,
+                            ClickListenerType.SAVE,
+                            item.nickName)
+                    } else {
+                        itemClickListener?.invoke(item,
+                            bindingAdapterPosition,
+                            ClickListenerType.UNSAVE,
+                            item.nickName)
+                    }
                 }
 
                 Glide.with(itemView)
@@ -93,6 +135,25 @@ sealed class SubredditRecyclerViewHolder(binding: ViewBinding) : RecyclerView.Vi
                 binding.subscribeButton.setImageIcon(Icon.createWithResource(context,
                     R.drawable.ic_add))
             }
+
+            if (item.isLocal) {
+                binding.timeTextView.visibility = View.INVISIBLE
+                binding.saveButton.visibility = View.GONE
+                binding.subscribeButton.visibility = View.GONE
+                binding.commentsTextView.visibility = View.INVISIBLE
+            } else {
+                binding.timeTextView.visibility = View.VISIBLE
+                binding.saveButton.visibility = View.VISIBLE
+                binding.subscribeButton.visibility = View.VISIBLE
+                binding.commentsTextView.visibility = View.VISIBLE
+            }
+
+            if (item.isSaved) {
+                binding.saveButton.setColorFilter(Color.rgb(25, 118, 210))
+            } else {
+                binding.saveButton.setColorFilter(Color.rgb(189, 189, 189))
+            }
+
             binding.apply {
                 root.setOnClickListener {
                     itemClickListener?.invoke(item,
@@ -113,6 +174,20 @@ sealed class SubredditRecyclerViewHolder(binding: ViewBinding) : RecyclerView.Vi
                         bindingAdapterPosition,
                         isFollowed(item),
                         item.nickName)
+                }
+
+                saveButton.setOnClickListener {
+                    if (!item.isSaved) {
+                        itemClickListener?.invoke(item,
+                            bindingAdapterPosition,
+                            ClickListenerType.SAVE,
+                            item.nickName)
+                    } else {
+                        itemClickListener?.invoke(item,
+                            bindingAdapterPosition,
+                            ClickListenerType.UNSAVE,
+                            item.nickName)
+                    }
                 }
 
                 Glide.with(itemView)
@@ -153,7 +228,23 @@ sealed class SubredditRecyclerViewHolder(binding: ViewBinding) : RecyclerView.Vi
                     R.drawable.ic_add))
             }
 
-            binding.videoView.minimumHeight = 600
+            if (item.isLocal) {
+                binding.timeTextView.visibility = View.INVISIBLE
+                binding.saveButton.visibility = View.GONE
+                binding.subscribeButton.visibility = View.GONE
+                binding.commentsTextView.visibility = View.INVISIBLE
+            } else {
+                binding.timeTextView.visibility = View.VISIBLE
+                binding.saveButton.visibility = View.VISIBLE
+                binding.subscribeButton.visibility = View.VISIBLE
+                binding.commentsTextView.visibility = View.VISIBLE
+            }
+
+            if (item.isSaved) {
+                binding.saveButton.setColorFilter(Color.rgb(25, 118, 210))
+            } else {
+                binding.saveButton.setColorFilter(Color.rgb(189, 189, 189))
+            }
 
             binding.apply {
                 root.setOnClickListener {
@@ -175,6 +266,20 @@ sealed class SubredditRecyclerViewHolder(binding: ViewBinding) : RecyclerView.Vi
                         bindingAdapterPosition,
                         isFollowed(item),
                         item.nickName)
+                }
+
+                saveButton.setOnClickListener {
+                    if (!item.isSaved) {
+                        itemClickListener?.invoke(item,
+                            bindingAdapterPosition,
+                            ClickListenerType.SAVE,
+                            item.nickName)
+                    } else {
+                        itemClickListener?.invoke(item,
+                            bindingAdapterPosition,
+                            ClickListenerType.UNSAVE,
+                            item.nickName)
+                    }
                 }
 
                 Glide.with(itemView)

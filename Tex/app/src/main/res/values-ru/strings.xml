@@ -57,4 +57,10 @@
     <string name="minutes_ago">мину(т/ты) назад</string>
     <string name="hours_ago">час(а/ов) назад</string>
     <string name="search">Поиск</string>
+    <string name="save_post">Сохранить пост</string>
+    <string name="local">Локаьно</string>
+    <string name="online">Онлайн</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="cancel">Отменить</string>
+    <string name="delete_item">Удалить выбранный элемент?</string>
 </resources>

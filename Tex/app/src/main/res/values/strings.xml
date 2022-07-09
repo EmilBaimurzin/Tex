@@ -53,7 +53,13 @@
     <string name="error_reply_was_not_added">Error, reply was not added</string>
     <string name="now">now</string>
     <string name="posted">posted</string>
-    <string name="minutes_ago">minutes_ago</string>
+    <string name="minutes_ago">minutes ago</string>
     <string name="hours_ago">hours ago</string>
     <string name="search">Search</string>
+    <string name="save_post">Save post</string>
+    <string name="local">Local</string>
+    <string name="online">Online</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Confirm</string>
+    <string name="delete_item">Delete item?</string>
 </resources>

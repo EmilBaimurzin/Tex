@@ -1,5 +1,7 @@
 package com.example.tex
 
+import android.util.Log
+import com.example.tex.DataBase.DataBase
 import org.junit.Test
 
 import org.junit.Assert.*

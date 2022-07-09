@@ -1,6 +1,7 @@
 package com.example.tex.others
 
 import android.util.Log
+import com.example.tex.subreddit.subredditRecyclerView.PostType
 import com.example.tex.subreddit.subredditRecyclerView.RedditPost
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -44,6 +45,7 @@ object PostParsing {
                                 val thumbnail = getThumbnail(postData)
                                 val isFollowed = isUserFollowed(postData)
                                 val prefix = postData.getString("subreddit_name_prefixed")
+                                val isSaved = postData.getBoolean("saved")
                                 listOfPosts.add(listConfiguration(
                                     nickname,
                                     time,
@@ -60,6 +62,7 @@ object PostParsing {
                                     thumbnail,
                                     isFollowed,
                                     prefix,
+                                    isSaved
                                 )!!)
                             }
                         continuation.resume(listOfPosts)
@@ -168,6 +171,7 @@ object PostParsing {
         thumbnail: String?,
         isFollowed: Boolean,
         prefix: String,
+        isSaved: Boolean
     ): RedditPost? {
         return suspendCoroutine { continuation ->
             scope.launch {
@@ -186,7 +190,10 @@ object PostParsing {
                             description = description,
                             postId = postId,
                             isFollowed = isFollowed,
-                            prefix = prefix
+                            prefix = prefix,
+                            postType = PostType.SimplePost,
+                            isSaved = isSaved,
+                            isLocal = false
                         ))
                     } else {
                         if (imageList.isNotEmpty() || url.contains("jpg") || url.contains("gif") || url.contains(
@@ -203,7 +210,10 @@ object PostParsing {
                                 postId = postId,
                                 isFollowed = isFollowed,
                                 thumbnail = thumbnail,
-                                prefix = prefix
+                                prefix = prefix,
+                                postType = PostType.ImagePost,
+                                isSaved = isSaved,
+                                isLocal = false
                             ))
                         } else {
                             if (videoLink != "") {
@@ -218,7 +228,10 @@ object PostParsing {
                                     videoAudio = videoAudio,
                                     postId = postId,
                                     isFollowed = isFollowed,
-                                    prefix = prefix
+                                    prefix = prefix,
+                                    postType = PostType.VideoPost,
+                                    isSaved = isSaved,
+                                    isLocal = false
                                 ))
                             } else {
                                 continuation.resume(null)

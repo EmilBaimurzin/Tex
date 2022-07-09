@@ -141,9 +141,9 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:src="@drawable/ic_image"
-        app:layout_constraintBottom_toBottomOf="@+id/imageInfoTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/saveButton"
         app:layout_constraintEnd_toStartOf="@+id/imageInfoTextView"
-        app:layout_constraintTop_toTopOf="@+id/imageInfoTextView"
+        app:layout_constraintTop_toTopOf="@+id/saveButton"
         app:tint="@color/gray_icon" />
 
     <TextView
@@ -152,9 +152,20 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:textColor="@color/gray_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/shareTextview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/shareTextview"
+        app:layout_constraintBottom_toBottomOf="@+id/image"
+        app:layout_constraintEnd_toStartOf="@id/saveButton"
+        app:layout_constraintTop_toTopOf="@+id/image"
         tools:text="2" />
+
+    <ImageButton
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/colorPrimaryVariant"
+        android:src="@drawable/ic_save_comment"
+        app:layout_constraintBottom_toBottomOf="@+id/commentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/commentButton"
+        app:tint="@color/gray_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

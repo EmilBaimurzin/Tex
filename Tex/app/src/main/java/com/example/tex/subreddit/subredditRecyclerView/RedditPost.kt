@@ -10,6 +10,8 @@ sealed class RedditPost : Parcelable {
     abstract var isFollowed: Boolean
     abstract val url: String
     abstract val prefix: String
+    abstract var isSaved: Boolean
+    abstract var isLocal: Boolean
 
     @Parcelize
     data class SimplePost(
@@ -19,10 +21,13 @@ sealed class RedditPost : Parcelable {
         val title: String,
         val description: String,
         val comments: String,
+        val postType: PostType,
         override val url: String,
         override val postId: String,
         override var isFollowed: Boolean,
-        override val prefix: String
+        override val prefix: String,
+        override var isSaved: Boolean,
+        override var isLocal: Boolean
     ) : RedditPost() {
         override fun equals(other: Any?): Boolean {
             if (javaClass != other?.javaClass) {
@@ -56,9 +61,12 @@ sealed class RedditPost : Parcelable {
         val video: String,
         override val url: String,
         val videoAudio: String,
+        val postType: PostType,
         override val postId: String,
         override var isFollowed: Boolean,
-        override val prefix: String
+        override val prefix: String,
+        override var isSaved: Boolean,
+        override var isLocal: Boolean
     ) : RedditPost() {
         override fun equals(other: Any?): Boolean {
             if (javaClass != other?.javaClass) {
@@ -89,12 +97,15 @@ sealed class RedditPost : Parcelable {
         val time: String,
         val title: String,
         val comments: String,
-        val media: List<Pair<String,String>>,
+        val media: List<Pair<String, String>>,
         val thumbnail: String?,
+        val postType: PostType,
         override val url: String,
         override val postId: String,
         override var isFollowed: Boolean,
-        override val prefix: String
+        override val prefix: String,
+        override var isSaved: Boolean,
+        override var isLocal: Boolean
     ) : RedditPost() {
         override fun equals(other: Any?): Boolean {
             if (javaClass != other?.javaClass) {

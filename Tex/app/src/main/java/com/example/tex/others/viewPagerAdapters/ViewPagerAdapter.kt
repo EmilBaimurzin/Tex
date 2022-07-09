@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.tex.R
 import com.example.tex.databinding.ViewpagerItemBinding
 
@@ -42,13 +43,13 @@ class ViewPagerAdapter(
         if (images.size > 1) {
             Glide.with(context)
                 .load(currentImagePair.second)
-                .placeholder(circularProgressDrawable)
+                .apply(RequestOptions().dontTransform().placeholder(circularProgressDrawable))
                 .thumbnail(multiThumbnail)
                 .into(holder.itemView.findViewById(R.id.ivImage))
         } else {
             Glide.with(context)
                 .load(currentImagePair.second)
-                .placeholder(circularProgressDrawable)
+                .apply(RequestOptions().dontTransform().placeholder(circularProgressDrawable))
                 .thumbnail(singleThumbnail)
                 .into(holder.itemView.findViewById(R.id.ivImage))
         }

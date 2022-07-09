@@ -179,7 +179,7 @@ class DetailedPostRepository {
         return suspendCoroutine { continuation ->
             scope.launch {
                 val code =
-                    Networking.mainInterface.saveComment(pairIdPosition.first, "comment").execute()
+                    Networking.mainInterface.saveById(pairIdPosition.first, "comment").execute()
                         .code()
                 continuation.resume(Pair(code == 200, pairIdPosition.second))
             }
@@ -190,7 +190,7 @@ class DetailedPostRepository {
         return suspendCoroutine { continuation ->
             scope.launch {
                 val code =
-                    Networking.mainInterface.unSaveComment(pairIdPosition.first).execute().code()
+                    Networking.mainInterface.unsaveById(pairIdPosition.first).execute().code()
                 continuation.resume(Pair(code == 200, pairIdPosition.second))
             }
         }

@@ -96,13 +96,13 @@ interface MainInterface {
     ): Call<Unit>
 
     @POST("/api/save?")
-    fun saveComment(
+    fun saveById(
         @Query("id") id: String,
         @Query("category") category: String,
     ): Call<Unit>
 
     @POST("/api/unsave?")
-    fun unSaveComment(
+    fun unsaveById(
         @Query("id") id: String
     ): Call<Unit>
 

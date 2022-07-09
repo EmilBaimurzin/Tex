@@ -18,6 +18,8 @@ class SubredditViewModel(state: SavedStateHandle) : ViewModel() {
     private val unfollowListLiveData = MutableLiveData<Int>()
     private val followListLiveData = MutableLiveData<Int>()
     private val searchLiveData = MutableLiveData("")
+    private val saveLiveData = MutableLiveData<Boolean?>()
+    private val unsaveLiveData = MutableLiveData<Boolean>()
     private val coroutineExceptionHandler =
         CoroutineExceptionHandler { _, throwable ->
             Log.e("error", "$throwable")
@@ -43,6 +45,9 @@ class SubredditViewModel(state: SavedStateHandle) : ViewModel() {
     val follow: LiveData<Int>
         get() = followListLiveData
 
+    val save: LiveData<Boolean?> = saveLiveData
+    val unsave: LiveData<Boolean> = unsaveLiveData
+
     fun unfollow(name: String) {
         scope.launch {
             unfollowListLiveData.postValue(repository.unfollow(name))
@@ -58,6 +63,24 @@ class SubredditViewModel(state: SavedStateHandle) : ViewModel() {
     fun getUsersName() {
         scope.launch {
             repository.getUsersName()
+        }
+    }
+
+    fun savePost(item: RedditPost, local: Boolean, online: Boolean) {
+        scope.launch {
+            saveLiveData.postValue(repository.savePost(item, local, online))
+        }
+    }
+
+    fun unsavePost(item: RedditPost) {
+        scope.launch {
+            unsaveLiveData.postValue(repository.unsavePostOnline(item))
+        }
+    }
+
+    fun checkLocal(postId: String, callback: (Boolean) -> Unit) {
+        scope.launch {
+            callback(repository.checkLocal(postId))
         }
     }
 
@@ -89,9 +112,27 @@ class SubredditViewModel(state: SavedStateHandle) : ViewModel() {
         return savedStateHandle.get(SEARCH_KEY) ?: false
     }
 
+    fun setActionState(state: Boolean) {
+        savedStateHandle.set(ACTION_KEY, state)
+    }
+
+    fun getActionState(): Boolean {
+        return savedStateHandle.get(ACTION_KEY) ?: false
+    }
+
+    fun setPositionState(state: Int) {
+        savedStateHandle.set(POSITION_KEY, state)
+    }
+
+    fun getPositionState(): Int {
+        return savedStateHandle.get(POSITION_KEY) ?: 0
+    }
+
     companion object {
         private const val TAB_KEY = "TAB_KEY"
         private const val SUBREDDIT_NAME_KEY = "SUBREDDIT_NAME_KEY"
         private const val SEARCH_KEY = "SEARCH_KEY"
+        private const val ACTION_KEY = "ACTION_KEY"
+        private const val POSITION_KEY = "POSITION_KEY"
     }
 }
