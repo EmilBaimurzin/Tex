@@ -7,6 +7,7 @@ ___
 
 # Описание
 <img src="screenshots/1.png" width="220" height="483"><img src="screenshots/2.png" width="220" height="483"><img src="screenshots/3.png" width="220" height="483">
+
 Приложение основанно на API площадки Reddit. Присутсвует продвинутое использование таких компонентов как:
 + RecyclerView с пагинацией
 + exoplayer с Gilde
